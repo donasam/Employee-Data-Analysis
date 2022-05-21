@@ -303,25 +303,25 @@ select last_name,count(last_name) as Frequency from d_Employees group by last_na
 
 **9. Histogram to show the salary distribution among the employees**
 
-SELECT title, avg(salary) as avg_Salary from d_Titles T JOIN d_Employees E on T.title_id = E.emp_title_id JOIN d_Salaries S on E.emp_no =  S.emp_no GROUP BY title;
-
-![Screenshot 2022-05-21 040945](https://user-images.githubusercontent.com/83896298/169621193-8091e0be-9622-41b1-a253-516133c27dbb.png)
-
-**10. Bar graph to show the Average salary per title (designation)**
-
 select D.dept_name, count(E.emp_no) as No_of_Employees,sum(S.salary) as Total_Salary from d_Departments D join d_Department_Employees DE on D.dept_no= DE.dept_no join d_Employees E on DE.emp_no=E.emp_no join d_Salaries S on S.emp_no=E.emp_no group by dept_name;
 
 ![10](https://user-images.githubusercontent.com/83896298/169621314-987217a9-90f2-4251-8c08-90593e68f74d.png)
 
+**10. Bar graph to show the Average salary per title (designation)**
+
+SELECT title, avg(salary) as avg_Salary from d_Titles T JOIN d_Employees E on T.title_id = E.emp_title_id JOIN d_Salaries S on E.emp_no =  S.emp_no GROUP BY title;
+
+![Screenshot 2022-05-21 040945](https://user-images.githubusercontent.com/83896298/169621193-8091e0be-9622-41b1-a253-516133c27dbb.png)
+
 **12.Own Analysis(based on the data understanding)**
 
-**displaying the concatenated version of first name and last name of employees along with employee number,sex,hire date and last performance rating**
+**Displaying the concatenated version of first name and last name of employees along with employee number,sex,hire date and last performance rating**
 
 select concat(first_name," ",last_name) as emp_name,emp_no,sex,hire_date,last_performance_rating from d_employees;
 
 ![12_1](https://user-images.githubusercontent.com/83896298/169621425-aa181bd6-31ab-4eaf-80ef-f14716f93053.png)
 
-**listing te employee number,employee name and department name of each employee**
+**Listing the employee number,employee name and department name of each employee**
 
 create view employeesnew as(select concat(first_name," ",last_name) as emp_name,emp_no,sex,hire_date,last_performance_rating from d_employees);
 
@@ -329,19 +329,19 @@ select DE.emp_no, EC.emp_name,D.dept_name from d_department_employees DE join d_
 
 ![12_2](https://user-images.githubusercontent.com/83896298/169621478-7178d07d-6e5a-4c00-91bc-150dc6090e1f.png)
 
-**listing total number of employees in each department**
+**Listing total number of employees in each department**
 
 select D.dept_name,count(DE.emp_no) as no_of_employees from d_department_employees DE join d_departments D on D.dept_no = DE.dept_no group by D.dept_name;
 
 ![12_3](https://user-images.githubusercontent.com/83896298/169621519-04fbcb57-a7a0-41c1-9972-31120c377e02.png)
 
-**displaying the employee name,employee number and salary of each employee**
+**Displaying the employee name,employee number and salary of each employee**
 
 select EC.emp_no, EC.emp_name,S.salary from employeesnew EC join d_salaries S on S.emp_no = EC.emp_no;
 
 ![12_4](https://user-images.githubusercontent.com/83896298/169621551-62d42a32-4b13-41ac-9fc5-6572db38c1a7.png)
 
-**listing the number of male and female employees in each department**
+**Listing the number of male and female employees in each department**
 
 select D.dept_name,E.sex,count(E.sex) as count_of_male_female from d_employees E join d_department_employees DE on E.emp_no = DE.emp_no join d_departments D on D.dept_no = DE.dept_no group by D.dept_name,E.sex;
 
@@ -350,6 +350,27 @@ select D.dept_name,E.sex,count(E.sex) as count_of_male_female from d_employees E
 
 ### 5 : Upload data to PySpark and perform data analysis and ML modeling using Spark SQL and Spark ML respectively.
 
+### EDA in PySpark
+
+**Histogram to show the salary distribution among the employees**
+
+![SAL_DIST](https://user-images.githubusercontent.com/83896298/169647379-7b8a8e47-acb2-4995-aa3d-42d026c26acf.png)
+
+**Bar graph to show the Average salary per title (designation)**
+
+![AVG_SAL](https://user-images.githubusercontent.com/83896298/169647416-ae99acec-415d-4b76-83c7-237c64e99cad.png)
+
+### ML Model Results
+
+For modelling the data,Logistic Regression and Decision Tree classifiers are used and a moderately good accuracy is obtained.
+
+**-Logistic Regression**
+
+![lr acc](https://user-images.githubusercontent.com/83896298/169647552-32fd40a2-1815-4813-a3a8-b496a68c4a8d.png)
+
+**-Decision Tree**
+
+![dt aa](https://user-images.githubusercontent.com/83896298/169647575-038455a0-9252-4a32-b92a-9a0bb8b58eb3.png)
 
 
 
