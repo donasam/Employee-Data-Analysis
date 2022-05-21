@@ -348,7 +348,7 @@ select D.dept_name,E.sex,count(E.sex) as count_of_male_female from d_employees E
 ![12_5](https://user-images.githubusercontent.com/83896298/169621570-56a7910a-93d9-4bf2-ba17-1ba8f1457709.png)
 
 
-### 5 : Upload data to PySpark and perform data analysis and ML modeling using Spark SQL and Spark ML respectively.
+### Step 5 : Upload data to PySpark and perform data analysis and ML modeling using Spark SQL and Spark ML respectively.
 
 ### EDA in PySpark
 
@@ -364,19 +364,21 @@ select D.dept_name,E.sex,count(E.sex) as count_of_male_female from d_employees E
 
 For modelling the data,Logistic Regression and Decision Tree classifiers are used and a moderately good accuracy is obtained.
 
-**-Logistic Regression**
+**- Logistic Regression**
 
 ![lr acc](https://user-images.githubusercontent.com/83896298/169647552-32fd40a2-1815-4813-a3a8-b496a68c4a8d.png)
 
-**-Decision Tree**
+**- Decision Tree**
 
 ![dt aa](https://user-images.githubusercontent.com/83896298/169647575-038455a0-9252-4a32-b92a-9a0bb8b58eb3.png)
 
+Here, the target variable is 'left1',which is used to make predictions on whether employees will leave the organization or not.
 
+Accuracy comes out to be 0.9013. It obtains 90 % values that are correctly predicted by both the models.
 
+> Here is the link to my python notebook conatining EDA and ML model.
 
-
-
+./ https://github.com/donasam/Employee-Data-Analysis/blob/main/capstoneproject1_dona.ipynb ./
 
 
  
