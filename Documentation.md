@@ -350,6 +350,8 @@ select D.dept_name,E.sex,count(E.sex) as count_of_male_female from d_employees E
 
 ### Step 5 : Upload data to PySpark and perform data analysis and ML modeling using Spark SQL and Spark ML respectively.
 
+### Outputs
+
 ### EDA in PySpark
 
 **Histogram to show the salary distribution among the employees**
@@ -380,8 +382,12 @@ Accuracy comes out to be 0.9013. It obtains 90 % values that are correctly predi
 
 ./ https://github.com/donasam/Employee-Data-Analysis/blob/main/capstoneproject1_dona.ipynb ./
 
+### Challenges Faced
 
- 
+- Issues in importing and loading the data to different big data tools
+- Complications in modelling using Spark
 
+### Future Work
 
+ALthough the model turned out to be moderately good producing good accuracy, there is still a room for improvement in terms of feature engineering and more accurate predictions. Also, the model can be improved in such a way that the organisations could use it for keeping track of their employees' details to perform analysis and analyse their performance.
 
