@@ -77,7 +77,7 @@ sh sqoop_HDFS.sh
 
 3) Creating tables in Hive
 Run the following command in Hive
-hive -f hive_commands.sql
+hive -f hive_commands.hql
 
 4) Analysis using Impala
 Run the following command in Impala
